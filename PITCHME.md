@@ -74,3 +74,15 @@ ClippedNews
 
 +++
 
+```
+class User
+{
+  public function doClip($item){
+    if ($item instanceof Blog) {
+      $clip = new ClippedBlog();
+    } else if  ($item instanceof News) {
+      $clip = new ClippedBlog();
+    }
+  }
+}
+```
