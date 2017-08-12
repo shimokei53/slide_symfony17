@@ -1,1 +1,0 @@
-# slide_symfony17
