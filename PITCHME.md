@@ -80,9 +80,49 @@ class User
   public function doClip($item){
     if ($item instanceof Blog) {
       $clip = new ClippedBlog();
-    } else if  ($item instanceof News) {
-      $clip = new ClippedBlog();
+    } else if ($item instanceof News) {
+      $clip = new ClippedNews();
     }
   }
 }
 ```
+
++++
+
+外から「いいねされるもの」を判定しなくてはならない
+
+これは正しいPolymorphicではない
+
++++
+
+絶対に `if ($item instanceof Hoge)` を書かない！
+
++++
+
+```
+class User
+{
+  public function doClip($item){
+    $clip = $item->generateClip($this);
+  }
+}
+```
+
+```
+class Blog
+{
+  public function createClip(User $user){
+    return new ClippedBlog();
+  }
+}
+```
+
+```
+class News
+{
+  public function createClip(User $user){
+    return new ClippedNews();
+  }
+}
+```
+
