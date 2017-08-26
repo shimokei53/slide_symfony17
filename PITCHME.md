@@ -47,6 +47,10 @@ shimokei53
 
 +++?image=https://i.gyazo.com/8c7d7af47e470bd6fd3db39fb9482fb0.png&size=auto 90%
 
++++
+
+### テーブル構成
+
 +++?image=https://i.gyazo.com/c30e7452d2e55a962ff1a016ea99e177.png&size=auto 90%
 
 +++?image=https://i.gyazo.com/d12e14e272604ace9e8261d1b2302d01.png&size=auto 90%
@@ -84,8 +88,6 @@ LikeBlog
 class LikeBlog extends Like
 {
     /**
-     * @var
-     *
      * @ORM\ManyToOne(targetEntity="Blog", inversedBy="likes")
      * @ORM\JoinColumn(name="item_id", referencedColumnName="id", nullable=false)
      */
@@ -123,6 +125,7 @@ class LikeNews extends Like
     }
 }
 ```
+@[4](ここだけNewsに変更)
 
 +++
 
