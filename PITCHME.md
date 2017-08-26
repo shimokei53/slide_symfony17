@@ -228,7 +228,7 @@ class News
   }
 }
 ```
-※不要なsetterはなるべく作らない
+※不要なsetterはなるべく作らないでおくと変更が防げる
 
 +++
 
@@ -266,7 +266,7 @@ class News
 +++
 
 # 「いいね」されるためには
-- `createLike`メソッドを作ってやれば良い |
+- createLikeメソッドを作ってやれば良い |
 - そのことを今後も強制したい
 
 +++ 
@@ -284,16 +284,35 @@ interface LikeableInterface
 class Blog implements LikeableInterface
 {
   public function createLike(User $user){
-    return new LikeBlog();
+    return new LikeBlog($user, $this);
   }
 }
 ```
 
 ```
+/**
+ * 新しく「いいね」対象となったHogeクラス
+ */
 class Hoge implements LikeableInterface
 {
   public function createLike(User $user){
-    return new LikeHoge();
+    return new LikeHoge($user, $this);
   }
+}
+```
+
++++
+「いいね」される側に共通で欲しいメソッドはinterfaceに書いておく
+
+```
+interface LikeableInterface
+{
+    public function createLike(User $user);
+    
+    /**
+     * 例： $userにいいねされているか
+     * @return boolean
+     */
+    public function isLikedBy(User $user);
 }
 ```
