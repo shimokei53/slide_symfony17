@@ -5,6 +5,11 @@ Inheritance MappingとPolymorphicと
 
 ---
 
+- 最近プロダクトで実装した機能が知見に溢れてました
+- 「設計の良さ」をどう実感してもらうか？
+
+---
+
 # 自己紹介
 shimokei53
 
@@ -39,6 +44,13 @@ shimokei53
 
 # クラス図
 
+- id
+- user_id
+- blog_id
+- news_id
+- photo_id
+- etc...
+
 +++
 
 # テーブル構成
@@ -50,18 +62,17 @@ shimokei53
 +++
 
 ()
-（カルテットコミュニケーションズさんのブログ）
 
 ---
 
 # 実コード
 
-AbstractClip
+AbstractLike
 
 +++
 
-ClippedBlog
-ClippedNews
+LikeBlog
+LikeNews
 
 +++
 
@@ -77,11 +88,11 @@ ClippedNews
 ```
 class User
 {
-  public function doClip($item){
+  public function doLike($item){
     if ($item instanceof Blog) {
-      $clip = new ClippedBlog();
+      $like = new LikeBlog();
     } else if ($item instanceof News) {
-      $clip = new ClippedNews();
+      $like = new LikeNews();
     }
   }
 }
@@ -102,8 +113,8 @@ class User
 ```
 class User
 {
-  public function doClip($item){
-    $clip = $item->generateClip($this);
+  public function doLike($item){
+    $like = $item->generateLike($this);
   }
 }
 ```
@@ -111,8 +122,8 @@ class User
 ```
 class Blog
 {
-  public function createClip(User $user){
-    return new ClippedBlog();
+  public function createLike(User $user){
+    return new LikeBlog();
   }
 }
 ```
@@ -120,9 +131,11 @@ class Blog
 ```
 class News
 {
-  public function createClip(User $user){
-    return new ClippedNews();
+  public function createLike(User $user){
+    return new LikeNews();
   }
 }
 ```
+
++++
 
