@@ -95,7 +95,8 @@ class User
     } else if ($item instanceof News) {
       $like = new LikeNews();
     }
-  }
+    // else if...がたくさん増えそう
+  }
 }
 ```
 
