@@ -55,20 +55,74 @@ shimokei53
 
 # Table Inheritance Mapping
 
-+++
-
-()
++++?image=https://i.gyazo.com/953ef58be366e9adef01d8bd52049c29.png
 
 ---
 
-# 実コード
-
 AbstractLike
+
+```
+/**
+ * @ORM\DiscriminatorColumn(name="item_type", type="string")
+ * @ORM\DiscriminatorMap({
+ *   "Abstract": "Like",
+ *   "Blog":   "LikeBlog",
+ *   "News":   "LikeNews",
+ * })
+ * @ORM\InheritanceType(value="SINGLE_TABLE")
+ */
+abstract class Like
+{
+}
+```
 
 +++
 
 LikeBlog
+
+```
+class LikeBlog extends Like
+{
+    /**
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="Blog", inversedBy="likes")
+     * @ORM\JoinColumn(name="item_id", referencedColumnName="id", nullable=false)
+     */
+    private $item;
+
+    /**
+     * @return Blog
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
+}
+```
+
++++
+
 LikeNews
+
+```
+class LikeNews extends Like
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="News", inversedBy="likes")
+     * @ORM\JoinColumn(name="item_id", referencedColumnName="id", nullable=false)
+     */
+    private $item;
+
+    /**
+     * @return News
+     */
+    public function getItem()
+    {
+        return $this->item;
+    }
+}
+```
 
 +++
 
