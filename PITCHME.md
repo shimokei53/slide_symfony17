@@ -63,6 +63,10 @@ shimokei53
 
 ---
 
+実際のコード
+
++++
+
 AbstractLike
 
 ```
@@ -127,10 +131,13 @@ class LikeNews extends Like
 ```
 @[4](ここだけNewsに変更)
 
++++?image=https://i.gyazo.com/72f2d844ad6d2f26e6c7462a14b474a4.png&size=auto 90%
+
 +++
 
 これでポリモーフィックはできたぞ！
 - 「いろんなもの」とリレーションを持つ場合はポリモーフィック
+- Single Table inheritanceを使えば上手く実装できそう
 
 ---
 
@@ -146,15 +153,16 @@ class User
       $like = new LikeBlog();
     } else if ($item instanceof News) {
       $like = new LikeNews();
-    }
-    // else if...がたくさん増えそう
+    } // else ifが増えそう…
   }
 }
 ```
+@[4-5]
+@[6-8]
 
 +++
 
-外から「いいねされるもの」を判定しなくてはならない
+外から「いいね対象」を判定しなくてはならない
 
 これは正しいPolymorphicではない
 
@@ -164,6 +172,7 @@ class User
 
 +++
 
+というわけで
 ```
 class User
 {
@@ -172,6 +181,7 @@ class User
   }
 }
 ```
+@[4](対象に任せる)
 
 +++
 
@@ -227,7 +237,7 @@ if文を書きたくなったら…
 
 ---
 
-### 「いいね」される側をどう書くか?
+### 「いいね」される側をどう定義する?
 - Blog
 - News
 - その他もろもろ
