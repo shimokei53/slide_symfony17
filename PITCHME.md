@@ -178,13 +178,10 @@ class News
 +++ 
 # Interface
 
++++
 ```
 interface LikeableInterface
 {
-    /**
-     * @param User $user
-     * @return Like
-     */
     public function createLike(User $user);
 }
 ```
