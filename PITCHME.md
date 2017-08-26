@@ -166,6 +166,21 @@ class LikeNews extends Like
 class User
 {
   public function doLike($item){
+    // $itemがBlogならLikeBlog
+    // $itemがNewsならLikeNews
+    // $itemがHogeならLikeHoge
+    // ....
+    return $like;
+  }
+}
+```
+
++++
+
+```
+class User
+{
+  public function doLike($item){
     if ($item instanceof Blog) {
       $like = new LikeBlog();
     } else if ($item instanceof News) {
