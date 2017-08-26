@@ -45,7 +45,9 @@ shimokei53
 
 ### クラス図
 
-+++?image=https://i.gyazo.com/8c7d7af47e470bd6fd3db39fb9482fb0.png&size=auto 90%
++++
+クラス図
+![](https://i.gyazo.com/8c7d7af47e470bd6fd3db39fb9482fb0.png&size=auto 90%)
 
 +++?image=https://i.gyazo.com/c30e7452d2e55a962ff1a016ea99e177.png&size=auto 90%
 
