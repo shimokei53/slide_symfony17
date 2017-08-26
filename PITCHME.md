@@ -177,3 +177,32 @@ class News
 
 +++ 
 # Interface
+
+```
+interface LikeableInterface
+{
+    /**
+     * @param User $user
+     * @return Like
+     */
+    public function createLike(User $user);
+}
+```
+
+```
+class Blog implements LikeableInterface
+{
+  public function createLike(User $user){
+    return new LikeBlog();
+  }
+}
+```
+
+```
+class Hoge implements LikeableInterface
+{
+  public function createLike(User $user){
+    return new LikeHoge();
+  }
+}
+```
