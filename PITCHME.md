@@ -134,7 +134,7 @@ class LikeNews extends Like
 
 ---
 
-# 「いいね」を「する」コードをどう書くか？
+### 「いいね」を「する」コードをどう書くか？
 
 +++
 
@@ -173,11 +173,16 @@ class User
 }
 ```
 
++++
+
 ```
 class Blog
 {
   public function createLike(User $user){
-    return new LikeBlog();
+    $like = new LikeBlog();
+    $like->setUser($user);
+    $like->setItem($this);
+    return $like;
   }
 }
 ```
@@ -186,7 +191,30 @@ class Blog
 class News
 {
   public function createLike(User $user){
-    return new LikeNews();
+    $like = new LikeNews();
+    $like->setUser($user);
+    $like->setItem($this);
+    return $like;
+  }
+}
+```
+
++++
+
+```
+class Blog
+{
+  public function createLike(User $user){
+    return new LikeBlog($user, $this);
+  }
+}
+```
+
+```
+class News
+{
+  public function createLike(User $user){
+    return new LikeNews($user, $this);
   }
 }
 ```
@@ -199,16 +227,18 @@ if文を書きたくなったら…
 
 ---
 
-# 「いいね」される側をどう書くか?
+### 「いいね」される側をどう書くか?
+- Blog
+- News
+- その他もろもろ
 
 +++
-
 
 ```
 class Blog
 {
   public function createLike(User $user){
-    return new LikeBlog();
+    return new LikeBlog($user, $this);
   }
 }
 ```
@@ -217,7 +247,7 @@ class Blog
 class News
 {
   public function createLike(User $user){
-    return new LikeNews();
+    return new LikeNews($user, $this);
   }
 }
 ```
