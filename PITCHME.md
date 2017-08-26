@@ -43,18 +43,15 @@ shimokei53
 
 ---
 
-# クラス図
+### クラス図
 
-- id
-- user_id
-- blog_id
-- news_id
-- photo_id
-- etc...
++++?image=https://i.gyazo.com/8c7d7af47e470bd6fd3db39fb9482fb0.png
 
 +++?image=https://i.gyazo.com/c30e7452d2e55a962ff1a016ea99e177.png
 
 +++?image=https://i.gyazo.com/d12e14e272604ace9e8261d1b2302d01.png
+
++++
 
 # Table Inheritance Mapping
 
