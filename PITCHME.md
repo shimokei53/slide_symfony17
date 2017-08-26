@@ -52,11 +52,8 @@ shimokei53
 - photo_id
 - etc...
 
-+++
-
-# テーブル構成
-
 +++?image=https://i.gyazo.com/c30e7452d2e55a962ff1a016ea99e177.png
+
 +++?image=https://i.gyazo.com/d12e14e272604ace9e8261d1b2302d01.png
 
 # Table Inheritance Mapping
