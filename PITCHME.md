@@ -2,6 +2,7 @@
 
 「いいね」機能の実装で見る
 Inheritance MappingとPolymorphicと
+抽象クラスとインターフェイスと
 
 ---
 
@@ -114,7 +115,7 @@ class User
 class User
 {
   public function doLike($item){
-    $like = $item->generateLike($this);
+    $like = $item->createLike($this);
   }
 }
 ```
@@ -139,3 +140,40 @@ class News
 
 +++
 
+if文を書きたくなったら…
+→処理される対象によって、異なる処理が必要なとき
+→「処理される対象」そのものに処理のロジックを移してしまう
+
+---
+
+# 「いいね」される側をどう書くか?
+
++++
+
+
+```
+class Blog
+{
+  public function createLike(User $user){
+    return new LikeBlog();
+  }
+}
+```
+
+```
+class News
+{
+  public function createLike(User $user){
+    return new LikeNews();
+  }
+}
+```
+
++++
+
+# 「いいね」されるためには
+- `createLike` メソッドを作ってやれば良い|
+- そのことを今後も強制したい
+
++++ 
+# Interface
