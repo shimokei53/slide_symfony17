@@ -13,7 +13,7 @@ Inheritance MappingとPolymorphicと
 
 # 自己紹介
 shimokei53
-![](https://i.gyazo.com/dbadc18da47c016d1450eb1282be2fa7.png&size=auto)
+![](https://i.gyazo.com/dbadc18da47c016d1450eb1282be2fa7.png&size=80% auto)
 
 ---?image=https://i.gyazo.com/d2ea4fdf57ce313f186e787e29b78574.png&size=auto 90%
 
