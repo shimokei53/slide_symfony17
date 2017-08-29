@@ -324,7 +324,8 @@ class Blog implements LikeableInterface
  */
 class Hoge implements LikeableInterface
 {
-  public function createLike(User $user){
+  // createLike（）を実装しないとエラーになる
+  public function createLike(User $user){
     return new LikeHoge($user, $this);
   }
 }
