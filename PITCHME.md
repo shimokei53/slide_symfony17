@@ -347,6 +347,20 @@ interface LikeableInterface
 }
 ```
 
++++
+
+interfaceを作ったので
+
+```
+class User
+{
+  public function doLike(LikeableInterface $item){
+    $like = $item->createLike($this);
+  }
+}
+```
+@[3](タイプヒントが書ける)
+
 ---
 
 # まとめ
